@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diyar Polat: Robotics &amp; Autonomous Systems</title>
+<meta name="description" content="M.Sc. Computer Science student at RWTH Aachen. Robotics, perception and autonomous systems: ROS 2, C++, Python, LiDAR.">
+
+<!-- Shown when the link is pasted into LinkedIn, Slack, WhatsApp. -->
+<meta property="og:title" content="Diyar Polat: Robotics &amp; Autonomous Systems">
+<meta property="og:description" content="M.Sc. Computer Science student at RWTH Aachen. Robotics, perception and autonomous systems: ROS 2, C++, Python, LiDAR.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://diyarpolat.de">
+
+<style>
+/* ---- palette -------------------------------------------------------- */
+:root {
+  --bg:      #ffffff;
+  --surface: #f6f7f9;
+  --border:  #e3e6ea;
+  --text:    #14181d;
+  --muted:   #5c6672;
+  --accent:  #0b5fff;
+  --accent-soft: #e8efff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:      #0f1216;
+    --surface: #171b21;
+    --border:  #262c34;
+    --text:    #e8eaed;
+    --muted:   #97a1ad;
+    --accent:  #6ea8ff;
+    --accent-soft: #17233a;
+  }
+}
+
+/* ---- base ----------------------------------------------------------- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { line-height: 1.25; margin: 0; }
+
+/* ---- header --------------------------------------------------------- */
+header { padding: 88px 0 56px; }
+h1 { font-size: 2.6rem; letter-spacing: -0.02em; }
+.tagline { font-size: 1.15rem; color: var(--muted); margin: 14px 0 0; max-width: 48ch; }
+.links { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+.links a {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 7px 14px;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+.links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+/* ---- sections ------------------------------------------------------- */
+section { padding: 40px 0; border-top: 1px solid var(--border); }
+h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 26px;
+}
+p { margin: 0 0 16px; }
+p:last-child { margin-bottom: 0; }
+
+/* ---- CV entries (experience, education, honors) --------------------- */
+.entry { margin-bottom: 30px; }
+.entry:last-child { margin-bottom: 0; }
+.entry-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 4px 16px;
+}
+.entry h3 { font-size: 1.05rem; }
+.entry .when { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
+.entry .org { color: var(--muted); font-size: 0.94rem; margin: 3px 0 0; }
+.entry ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+.entry ul li { margin-bottom: 7px; }
+.entry ul li:last-child { margin-bottom: 0; }
+
+/* ---- project cards -------------------------------------------------- */
+.project {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+.project:last-child { margin-bottom: 0; }
+.project-head {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 10px;
+}
+.project h3 { font-size: 1.12rem; }
+.badge {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em;
+  padding: 3px 8px; border-radius: 20px;
+  background: var(--accent-soft); color: var(--accent);
+}
+.badge.wip { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+.project p { color: var(--muted); margin-bottom: 14px; }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.stack span {
+  font-size: 0.78rem; color: var(--muted);
+  border: 1px solid var(--border); border-radius: 5px; padding: 2px 8px;
+}
+.project-links { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.92rem; }
+.project-links .disabled { color: var(--muted); cursor: default; }
+.project-links .disabled:hover { text-decoration: none; }
+
+/* ---- skills --------------------------------------------------------- */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 22px; }
+.skills h3 { font-size: 0.95rem; margin-bottom: 8px; }
+.skills p { color: var(--muted); font-size: 0.94rem; }
+
+/* ---- footer --------------------------------------------------------- */
+footer {
+  padding: 40px 0 72px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.footer-links { display: flex; gap: 16px; }
+
+@media (max-width: 560px) {
+  header { padding: 56px 0 40px; }
+  h1 { font-size: 2rem; }
+  .entry-head { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ==================================================================
+     HEADER
+     =================================================================== -->
+<header>
+  <h1>Diyar Polat</h1>
+  <p class="tagline">
+    M.Sc. Computer Science student at RWTH Aachen, working on robotics
+    software at Fraunhofer IML. Perception, autonomous navigation, and the
+     engineering that keeps them running on real hardware.
+  </p>
+  <div class="links">
+    <a href="https://github.com/Diyo24">GitHub</a>
+    <a href="https://www.linkedin.com/in/diyarpolat">LinkedIn</a>
+    <a href="mailto:diyarpolat@gmx.de">Email</a>
+    <!-- To offer the PDF: drop cv.pdf next to this file and uncomment.
+    <a href="/cv.pdf">CV (PDF)</a>
+    -->
+  </div>
+</header>
+
+<!-- ==================================================================
+     ABOUT
+     =================================================================== -->
+<section>
+  <h2>About</h2>
+  <p>
+    I study computer science at <strong>RWTH Aachen University</strong>
+    (M.Sc., expected 2027), after a B.Sc. in Applied Computer Science at
+    TU Dortmund. Since 2024 I have worked as a research assistant at the
+    <strong>Fraunhofer Institute for Material Flow and Logistics</strong>,
+    building ROS 2 components for autonomous mobile robots.
+  </p>
+  <p>
+    My interest is in the software that makes machines perceive and decide:
+    sensor processing, perception, navigation, and safety-critical control.
+  </p>
+  <p>
+    I am open to a <strong> master's
+    thesis</strong> in robotics, perception or autonomous driving and to
+    full-time roles from 10/2027.
+  </p>
+</section>
+
+<!-- ==================================================================
+     EXPERIENCE
+     =================================================================== -->
+<section>
+  <h2>Experience</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>(Graduate) Student Research Assistant</h3>
+      <span class="when">Jul 2024 – Present</span>
+    </div>
+    <p class="org">Fraunhofer Institute for Material Flow and Logistics (IML) · Dortmund</p>
+    <ul>
+      <li>Designed and implemented modular ROS 2 components in C++ and Python
+          for real-time autonomous navigation using LiDAR-based perception.</li>
+      <li>Developed/Extended low-level drivers for industrial safety laser scanners,
+          creating reliable sensor abstractions from serial interface to ethernet.</li>
+      <li>Architected a fail-safe emergency stop system integrating hardware
+          control with software state management for reliable system shutdown.</li>
+      <li>Built data acquisition pipelines for motion-capture-based training
+          data collection and preprocessing.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Software Engineer, Driverless Team</h3>
+      <span class="when">Nov 2023 – Mar 2025</span>
+    </div>
+    <p class="org">GET Racing Dortmund e.V. · Formula Student · Dortmund</p>
+    <ul>
+      <li>First contact with autonomous driving and the establishment of an autonomous driving pipeline. Configuring sensors and actuators and developing algorithms with ROS</li>
+      <li>Collaborated in a 20+ member interdisciplinary team using GitLab and
+          CI pipelines for integration and testing.</li>
+      <li>Contributed to a shared Python and C++ codebase following structured
+          branching, code reviews and integration workflows.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================================================================
+     PROJECTS
+     To add one: copy an <article class="project"> block and edit it.
+     Badge options:  <span class="badge">Live demo</span>
+                     <span class="badge wip">In progress</span>
+     =================================================================== -->
+<section>
+  <h2>Projects</h2>
+
+  <!-- ---------------- Kanoodle solver ---------------- -->
+  <article class="project">
+    <div class="project-head">
+      <h3>Kanoodle Solver</h3>
+      <span class="badge">Live demo</span>
+    </div>
+    <p>
+      A constraint solver for the Kanoodle puzzle: twelve irregular pieces,
+      each with eight orientations, that must tile a board exactly. Written in
+      Haskell as a backtracking search with pruning, wrapped in a small HTTP
+      API and a browser UI you can play with directly. It runs on an NVIDIA
+      Jetson Xavier NX on my desk, deployed automatically from a release
+      branch and exposed through a Cloudflare tunnel.
+    </p>
+    <div class="stack">
+      <span>Haskell</span><span>servant</span><span>systemd</span>
+      <span>Jetson</span><span>JavaScript</span>
+    </div>
+    <div class="project-links">
+      <a href="https://kanoodle.diyarpolat.de">Try it live →</a>
+      <!-- Swap for the real repo link once it's public: -->
+      <a class="disabled">Source — publishing soon</a>
+    </div>
+  </article>
+
+  <!-- ---------------- FFU counter ---------------- -->
+  <article class="project">
+    <div class="project-head">
+      <h3>FFU Counter: Microscopy Image Analysis</h3>
+    </div>
+    <p>
+      Counting Focus Forming Units in fluorescence microscopy images is slow
+      and inconsistent when done by hand. This OpenCV pipeline does it
+      automatically: preprocessing and thresholding to separate foci from
+      uneven background illumination, then feature extraction and counting,
+      with a reproducible evaluation workflow so results can be checked
+      against manual counts rather than trusted blindly.
+    </p>
+    <div class="stack">
+      <span>Python</span><span>OpenCV</span><span>NumPy</span>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/Diyo24/ffu-counter">Source →</a>
+    </div>
+  </article>
+</section>
+
+<!-- ==================================================================
+     EDUCATION
+     =================================================================== -->
+<section>
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>M.Sc. Computer Science</h3>
+      <span class="when">Since Oct 2025</span>
+    </div>
+    <p class="org">RWTH Aachen University · Aachen</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>B.Sc. Applied Computer Science</h3>
+      <span class="when">Oct 2022 – Sept 2025</span>
+    </div>
+    <p class="org">TU Dortmund University · Grade 1.7 (German scale)</p>
+  </div>
+</section>
+
+<!-- ==================================================================
+     HONORS & VOLUNTEERING
+     =================================================================== -->
+<section>
+  <h2>Honors &amp; Volunteering</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Scholar, German National Academic Foundation</h3>
+      <span class="when">Since Oct 2025</span>
+    </div>
+    <p class="org">Studienstiftung des deutschen Volkes, Germany's national
+      merit-based scholarship, awarded to roughly the top 1% of students.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>B-First Scholar, Claussen-Simon-Stiftung</h3>
+      <span class="when">Oct 2022 – Sept 2025</span>
+    </div>
+    <p class="org">Merit-based programme supporting first-generation
+      university students.</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Volunteer, arbeiterkind.de</h3>
+      <span class="when">Since Apr 2026</span>
+    </div>
+    <p class="org">Guiding first-generation students into higher education.</p>
+  </div>
+</section>
+
+<!-- ==================================================================
+     SKILLS
+     =================================================================== -->
+<section>
+  <h2>Skills</h2>
+  <div class="skills">
+    <div>
+      <h3>Languages</h3>
+      <p>Python, C++, C, Java, Kotlin, SQL</p>
+    </div>
+    <div>
+      <h3>Robotics &amp; ML</h3>
+      <p>ROS 2, PyTorch, OpenCV, navigation, Reinforcement Learning</p>
+    </div>
+    <div>
+      <h3>Systems</h3>
+      <p>Linux, embedded systems, hardware–software integration, safety-critical design, Git, Ansible</p>
+    </div>
+    <div>
+      <h3>Core CS</h3>
+      <p>Data structures, algorithms, complexity analysis, model checking, functional programming</p>
+    </div>
+    <div>
+      <h3>Spoken languages</h3>
+      <p>German (native), English (C1), French (B1), Turkish (basic)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================
+     CONTACT
+     =================================================================== -->
+<section>
+  <h2>Contact</h2>
+  <p>
+    Open to master's thesis projects in
+    robotics, perception and autonomous driving + full time roles starting in October 2027.
+  </p>
+  <p>
+    <a href="mailto:diyarpolat@gmx.de">diyarpolat@gmx.de</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/diyarpolat">LinkedIn</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/Diyo24">GitHub</a>
+  </p>
+</section>
+
+<footer>
+  <div>© <span id="year">2026</span> Diyar Polat</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

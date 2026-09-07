@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum — Diyar Polat</title>
+<!-- noindex hält die Adresse aus Suchmaschinen heraus. Die gesetzlich
+     geforderte Erreichbarkeit (Link im Footer jeder Seite) bleibt bestehen. -->
+<meta name="robots" content="noindex">
+<style>
+:root {
+  --bg:      #ffffff;
+  --surface: #f6f7f9;
+  --border:  #e3e6ea;
+  --text:    #14181d;
+  --muted:   #5c6672;
+  --accent:  #0b5fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:      #0f1216;
+    --surface: #171b21;
+    --border:  #262c34;
+    --text:    #e8eaed;
+    --muted:   #97a1ad;
+    --accent:  #6ea8ff;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { line-height: 1.25; margin: 0; }
+header { padding: 64px 0 32px; }
+h1 { font-size: 2rem; letter-spacing: -0.02em; }
+.back { font-size: 0.92rem; display: inline-block; margin-bottom: 22px; }
+main { padding-bottom: 40px; }
+section { padding: 30px 0; border-top: 1px solid var(--border); }
+h2 {
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.09em;
+  color: var(--muted); font-weight: 600; margin-bottom: 18px;
+}
+h3 { font-size: 1rem; margin: 22px 0 8px; }
+h3:first-of-type { margin-top: 0; }
+p { margin: 0 0 14px; }
+p:last-child { margin-bottom: 0; }
+address { font-style: normal; margin-bottom: 14px; }
+ul { margin: 0 0 14px; padding-left: 20px; color: var(--muted); }
+li { margin-bottom: 6px; }
+.note { color: var(--muted); font-size: 0.94rem; }
+footer {
+  padding: 30px 0 64px; border-top: 1px solid var(--border);
+  color: var(--muted); font-size: 0.9rem;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.footer-links { display: flex; gap: 16px; }
+@media (max-width: 560px) { header { padding: 44px 0 26px; } h1 { font-size: 1.6rem; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="index.html">← Zurück zur Startseite</a>
+  <h1>Impressum</h1>
+</header>
+
+<main>
+
+<section>
+  <h2>Angaben gemäß § 5 DDG</h2>
+  <!-- ======================================================================
+       AUSFÜLLEN: Anschrift des Bruders (c/o). Muss ladungsfähig sein,
+       also eine Adresse, unter der Post und förmliche Zustellungen
+       zuverlässig ankommen. Kein Postfach.
+       ====================================================================== -->
+  <address>
+    Diyar Polat<br>
+    Schollenbroich 26<br>
+    45307 Essen<br>
+    Deutschland
+  </address>
+
+  <h3>Kontakt</h3>
+  <p>E-Mail: <a href="mailto:diyarpolat@gmx.de">diyarpolat@gmx.de</a></p>
+</section>
+
+<section>
+  <h2>Verantwortlich für den Inhalt</h2>
+  <p>
+    Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: Diyar Polat,
+    Anschrift wie oben.
+  </p>
+</section>
+
+<section>
+  <h2>Haftung für Links</h2>
+  <p>
+    Diese Website verlinkt auf externe Websites Dritter, auf deren Inhalte
+    ich keinen Einfluss habe. Für diese fremden Inhalte kann ich keine
+    Gewähr übernehmen; verantwortlich ist stets der jeweilige Anbieter oder
+    Betreiber der verlinkten Seiten. Zum Zeitpunkt der Verlinkung waren
+    keine Rechtsverstöße erkennbar. Bei Bekanntwerden von Rechtsverletzungen
+    entferne ich entsprechende Links umgehend.
+  </p>
+</section>
+
+<section>
+  <h2>Urheberrecht</h2>
+  <p>
+    Die auf dieser Website erstellten Inhalte unterliegen dem deutschen
+    Urheberrecht. Der Quellcode der verlinkten Projekte steht, soweit auf
+    GitHub veröffentlicht, unter den dort jeweils angegebenen Lizenzen.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <div>© <span id="year">2026</span> Diyar Polat</div>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
