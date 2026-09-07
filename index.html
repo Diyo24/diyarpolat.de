@@ -248,13 +248,20 @@ footer {
       A constraint solver for the Kanoodle puzzle: twelve irregular pieces,
       each with eight orientations, that must tile a board exactly. Written in
       Haskell as a backtracking search with pruning, wrapped in a small HTTP
-      API and a browser UI you can play with directly. It runs on an NVIDIA
-      Jetson Xavier NX on my desk, deployed automatically from a release
-      branch and exposed through a Cloudflare tunnel.
+      API and a browser UI you can play with directly.
+    </p>
+    <p>
+     The half I find more interesting is how it's operated. 
+     It runs on an NVIDIA Jetson Xavier NX on my desk, under a systemd 
+     unit that gives it nothing it doesn't need: DynamicUser so it runs as a transient unprivileged account with no home and no login, 
+     ProtectSystem=strict and ReadOnlyPaths for a read-only filesystem, NoNewPrivileges, plus CPUQuota and MemoryMax caps so one expensive search can't starve the board. 
+     A timer polls the release branch every five minutes and promotes a new build only if it compiles: a failed build leaves the running version untouched rather than taking the site down. 
+     The board exposes no open ports at all: a Cloudflare tunnel dials outward, so nothing on my home network is reachable from the internet.
     </p>
     <div class="stack">
       <span>Haskell</span><span>servant</span><span>systemd</span>
-      <span>Jetson</span><span>JavaScript</span>
+      <span>Jetson (ARM64)</span><span>Cloudflare Tunnel</span>
+      <span>JavaScript</span>
     </div>
     <div class="project-links">
       <a href="https://kanoodle.diyarpolat.de">Try it live →</a>
